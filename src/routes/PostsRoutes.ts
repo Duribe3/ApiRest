@@ -18,13 +18,15 @@ this.routes();
 
 }
 
-getPost(){
-  
+getPost(req:Request , res:Response){
+
 
 }
 
-createPost(){
+createPost(req:Request , res:Response){
+  console.log(req.body);
 
+  res.json ('Recivido')
 }
 
 updatePost(){
