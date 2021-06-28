@@ -18,20 +18,23 @@ this.routes();
 
 }
 
-getPost(req:Request , res:Response){
-
+ async getPost(req:Request , res:Response){
+ const post =await Post.find({url: req.params.url});
+res.json(post)
 
 }
 
-createPost(req:Request , res:Response){
-  console.log(req.body);
-
-  res.json ('Recivido')
+async createPost(req:Request , res:Response){
+  const {title,url,content,image}=req.body;
+const newPost=new Post({title,url,content,image})
+ await newPost.save();
+  res.json ( {data :newPost});
 }
 
 updatePost(){
 
 }
+
 
 deletePost(){
 
